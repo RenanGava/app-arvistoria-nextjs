@@ -63,6 +63,7 @@ export const GlobalStyles = createGlobalStyle`
         top: 8rem;
         bottom: 0;
         background-color: rgba(0,0,0,0.5);
+        border: 0;
     }
     
     .react-modal-content{
@@ -75,8 +76,8 @@ export const GlobalStyles = createGlobalStyle`
         display: flex;
         justify-content: center;
         align-items: center;
-        border: none;
-
+        border: 0;
+        outline: none;
         ul{
             width: 100vw;
             list-style: none;

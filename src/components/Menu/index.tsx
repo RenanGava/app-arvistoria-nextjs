@@ -1,26 +1,42 @@
 import { MenuContainer } from './style'
 import { CgMenu } from 'react-icons/cg'
 import Modal from 'react-modal';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { useResizeDetector } from 'react-resize-detector'
 
 import { IoClose } from "react-icons/io5";
 import Link from 'next/link';
+import { useWidth } from '../../Hooks/useWidth';
 
 
 
 export function Menu() {
     const [isOpen, setIsOpen] = useState(true)
     const [close, setClose] = useState(false)
+    const width = useWidth()
 
+    console.log(width);
+
+    
     function onRequestOpen() {
         setIsOpen(true)
         setClose(true)
     }
 
     function onRequestClose() {
+        console.log('oi');
+        
         setIsOpen(false)
         setClose(false)
     }
+
+    useEffect(()=>{
+        function close(){
+            setClose(false)
+        }
+        width > 720 && onRequestClose()
+    })
+    
 
     return (
         <MenuContainer>
